@@ -7,7 +7,7 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/client.html');
 });
 
-app.get('/cp', function(req,res,net) {
+app.get('/hive', function(req,res,net) {
     io.emit('sev1',{refno: req.query.refno, title: req.query.title});
     res.send('notification sent');
 });
