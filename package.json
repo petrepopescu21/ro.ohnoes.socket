@@ -1,0 +1,24 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "Socket SiteDown Test",
+  "main": "./Server/",
+  "scripts": {
+    "start": "node ./Server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petrepopescu21/ro.ohnoes.socket.git"
+  },
+  "author": "Petre Popescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petrepopescu21/ro.ohnoes.socket/issues"
+  },
+  "homepage": "https://github.com/petrepopescu21/ro.ohnoes.socket#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.6"
+  }
+}
