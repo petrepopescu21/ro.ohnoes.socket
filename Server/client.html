@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js'></script>
         <script>
             
@@ -53,8 +54,23 @@
                 messages.appendChild(el);
             }
         </script>
+        <style>
+            
+            
+            h1 {
+                font-family: 'Oswald', sans-serif;
+                left: 0;
+                line-height: 200px;
+                margin-top: -100px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                width: 100%;
+                font-size: 5vw;
+            }
+        </style>
     </head>
     <body>
-        <ul id='messages'></ul>
+        <h1>This page generates notifications.</h1>
     </body>
 </html>
