@@ -4,10 +4,16 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 //app.use(express.static(__dirname + '/app'));
+<<<<<<< HEAD
 app.use(express.static( __dirname + '/'));
 
 app.get('/', function(req, res,next) {  
     res.sendFile(__dirname + '/index.html')
+=======
+
+app.get('/', function(req, res,next) {  
+    res.send('Root!');
+>>>>>>> origin/master
 });
 
 app.get('/cp', function(req,res,net) {
