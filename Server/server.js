@@ -8,8 +8,8 @@ app.get('/', function(req, res,next) {
 });
 
 app.get('/cp', function(req,res,net) {
-    io.emit('time',{time:new Date().toJSON()});
-    res.send('Time sent.');
+    io.emit('sev1',req.query.refno);
+    res.send('notification sent');
 });
 
 server.listen(process.env.PORT || 4200);  

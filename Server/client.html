@@ -3,6 +3,33 @@
     <head>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js'></script>
         <script>
+            
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                if (Notification.permission !== "granted")
+                Notification.requestPermission();
+            });
+            
+            function notifyMe(refno) {
+                  if (!Notification) {
+                    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+                    return;
+                  }
+
+                  if (Notification.permission !== "granted")
+                    Notification.requestPermission();
+                  else {
+                    var notification = new Notification('Notification title', {
+                      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+                      body: refno,
+                    });
+
+                    
+
+                  }
+
+           }
+            
             var socket = io();
 
             socket.on('welcome', function(data) {
@@ -11,8 +38,8 @@
                 // Respond with a message including this clients' id sent from the server
                 socket.emit('i am client', {data: 'foo!', id: data.id});
             });
-            socket.on('time', function(data) {
-                addMessage(data.time);
+            socket.on('sev1', function(data) {
+                notifyMe(data.sev1)
             });
             socket.on('error', console.error.bind(console));
             socket.on('message', console.log.bind(console));
