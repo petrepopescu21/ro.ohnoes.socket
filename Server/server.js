@@ -3,11 +3,9 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-
-app.use(express.static( __dirname + '/'));
-
 app.get('/', function(req, res,next) {  
-    res.sendFile(__dirname + '/index.html');});
+    res.sendFile(__dirname + '/client.html');
+});
 
 app.get('/cp', function(req,res,net) {
     io.emit('time',{time:new Date().toJSON()});
