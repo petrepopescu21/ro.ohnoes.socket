@@ -20,7 +20,7 @@
                   if (Notification.permission !== "granted")
                     Notification.requestPermission();
                   else {
-                    var notification = ServiceWorkerRegistration.showNotification(title, {
+                    var notification = new Notification(title, {
                       icon: 'https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/alert-circle-red-128.png',
                       body: refno,
                     });
