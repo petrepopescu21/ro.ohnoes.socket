@@ -8,7 +8,7 @@ app.get('/', function(req, res,next) {
 });
 
 app.get('/cp', function(req,res,net) {
-    io.emit('sev1',req.query.refno);
+    io.emit('sev1',{refno: req.query.refno, title: req.query.title});
     res.send('notification sent');
 });
 

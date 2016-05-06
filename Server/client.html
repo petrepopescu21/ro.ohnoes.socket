@@ -10,7 +10,7 @@
                 Notification.requestPermission();
             });
             
-            function notifyMe(refno) {
+            function notifyMe(refno,title) {
                   if (!Notification) {
                     alert('Desktop notifications not available in your browser. Try Chromium.'); 
                     return;
@@ -19,7 +19,7 @@
                   if (Notification.permission !== "granted")
                     Notification.requestPermission();
                   else {
-                    var notification = new Notification('Notification title', {
+                    var notification = new Notification(title, {
                       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
                       body: refno,
                     });
@@ -39,7 +39,7 @@
                 socket.emit('i am client', {data: 'foo!', id: data.id});
             });
             socket.on('sev1', function(data) {
-                notifyMe(data.sev1)
+                notifyMe(data.refno,data.title)
             });
             socket.on('error', console.error.bind(console));
             socket.on('message', console.log.bind(console));
