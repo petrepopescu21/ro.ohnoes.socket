@@ -2,16 +2,20 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-app.use(express.static(__dirname + '/app'));
+
+//app.use(express.static(__dirname + '/app'));
+app.use(express.static( __dirname + '/'));
+
 app.get('/', function(req, res,next) {  
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/test', function(req, res,next) {  
-    res.send('Hello!');
+app.get('/cp', function(req,res,net) {
+    io.emit('time',{time:new Date().toJSON()});
+    res.send('Time sent.');
 });
 
-server.listen(4200);  
+server.listen(process.env.PORT || 4200);  
 
 io.on('connection', function(client) {  
     console.log('Client connected...');
