@@ -20,7 +20,7 @@
                   if (Notification.permission !== "granted")
                     Notification.requestPermission();
                   else {
-                    var notification = new Notification(title, {
+                    var notification = ServiceWorkerRegistration.showNotification(title, {
                       icon: 'https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/alert-circle-red-128.png',
                       body: refno,
                     });
@@ -34,8 +34,7 @@
             var socket = io();
 
             socket.on('welcome', function(data) {
-                addMessage(data.message);
-
+                
                 // Respond with a message including this clients' id sent from the server
                 socket.emit('i am client', {data: 'foo!', id: data.id});
             });
@@ -45,14 +44,6 @@
             socket.on('error', console.error.bind(console));
             socket.on('message', console.log.bind(console));
 
-            function addMessage(message) {
-                var text = document.createTextNode(message),
-                    el = document.createElement('li'),
-                    messages = document.getElementById('messages');
-
-                el.appendChild(text);
-                messages.appendChild(el);
-            }
         </script>
         <style>
             
